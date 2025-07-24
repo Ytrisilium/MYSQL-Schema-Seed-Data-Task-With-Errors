@@ -25,12 +25,12 @@ This will create the database schema and insert sample test data.
 ### 1. 🛒 Top-Selling Product (based on total quantity ordered)
 
 ```sql
-SELECT p.name, SUM(oi.quantity) AS total_sold
-FROM orderItem oi
-JOIN product p ON oi.product_id = p.productId
-GROUP BY p.productId
-ORDER BY total_sold DESC
-LIMIT 1;
+select p.name, SUM(oi.quantity) AS total_sold
+from orderItem oi
+join product p ON oi.product_id = p.productId
+group BY p.productId
+order BY total_sold DESC
+limit 1;
 ```
 
 ---
@@ -38,10 +38,10 @@ LIMIT 1;
 ### 2. 📦 Orders per User
 
 ```sql
-SELECT u.name, COUNT(o.orderId) AS orders_count
-FROM `order` o
-JOIN `user` u ON o.user_id = u.userId
-GROUP BY u.userId;
+select u.name, COUNT(o.orderId) AS orders_count
+from `order` o
+join `user` u ON o.user_id = u.userId
+group BY u.userId;
 ```
 
 ---
@@ -49,11 +49,11 @@ GROUP BY u.userId;
 ### 3. 🛍️ Products in Cart (for a specific user)
 
 ```sql
-SELECT u.name AS user, p.name AS product, p.price
-FROM cart c
-JOIN prodCart pc ON c.cartId = pc.cart_id
-JOIN product p ON pc.product_id = p.productId
-JOIN `user` u ON c.user_id = u.userId;
+select u.name AS user, p.name AS product, p.price
+from cart c
+join prodCart pc ON c.cartId = pc.cart_id
+join product p ON pc.product_id = p.productId
+join `user` u ON c.user_id = u.userId;
 ```
 
 ---
@@ -61,9 +61,9 @@ JOIN `user` u ON c.user_id = u.userId;
 ### 4. ✅ Completed Orders
 
 ```sql
-SELECT orderId, user_id, created_at
-FROM `order`
-WHERE order_status = 'Completed';
+select orderId, user_id, created_at
+from `order`
+where order_status = 'Completed';
 ```
 
 ---
@@ -71,9 +71,9 @@ WHERE order_status = 'Completed';
 ### 5. 📚 Products by Category
 
 ```sql
-SELECT category, COUNT(*) AS num_products
-FROM product
-GROUP BY category;
+select category, COUNT(*) AS num_products
+from product
+group BY category;
 ```
 
 ---
