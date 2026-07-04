@@ -1,7 +1,7 @@
 # MYSQL-Schema-Seed-Data-Task
 
 ## 📌 Description
-This project is a sample SQL schema for an e-commerce system built for training purposes. It includes users, products, carts, and orders with proper constraints and indexing for performance.
+This project is a sample SQL schema for an e-commerce system built for training purposes. It includes users, products, carts, and orders.
 
 ---
 
