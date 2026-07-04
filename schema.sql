@@ -15,6 +15,7 @@ is_admin boolean default FALSE,
 password_hash varchar(255)
 );
 
+-- TODO: Add missing data validation
 create table `session` (
 sessionId int auto_increment primary key,
 user_id int,
